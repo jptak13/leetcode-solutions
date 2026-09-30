@@ -1,0 +1,25 @@
+// Title: Equal Row and Column Pairs
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/equal-row-and-column-pairs/
+
+class Solution:
+    def equalPairs(self, grid: list[list[int]]) -> int:
+        rows = {}
+        output = 0
+        for i in range(len(grid)):
+            toAdd = ""
+            for j in range(len(grid[0])):
+                toAdd += str(grid[i][j]) + " "
+            if toAdd not in rows:
+                rows[toAdd] = 1
+            else:
+                rows[toAdd] += 1
+        for j in range(len(grid[0])):
+            toAdd = ""
+            for i in range(len(grid)):
+                toAdd += str(grid[i][j]) + " "
+            if toAdd in rows:
+                output += rows[toAdd]
+        return output
+        
