@@ -1,0 +1,14 @@
+// Title: Removing Stars From a String
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/removing-stars-from-a-string/
+
+class Solution:
+    def removeStars(self, s: str) -> str:
+        x = []
+        for char in s:
+            x.append(char)
+            if char == "*":
+                x.pop()
+                x.pop()
+        return "".join(x)
