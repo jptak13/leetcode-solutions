@@ -1,0 +1,34 @@
+// Title: Determine if Two Strings Are Close
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/determine-if-two-strings-are-close/
+
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        x = {}
+        y = {}
+        for char in word1:
+            if char not in x:
+                x[char] = 1
+            else:
+                x[char] += 1
+        for char in word2:
+            if char not in y:
+                y[char] = 1
+            else:
+                y[char] += 1
+        z = {}
+        for val in x:
+            if x[val] not in z:
+                z[x[val]] = 1
+            else:
+                z[x[val]] += 1
+        for val in y:
+            if y[val] not in z or z[y[val]] == 0:
+                return False
+            else:
+                z[y[val]] -= 1
+        for val in z:
+            if z[val] != 0:
+                return False
+        for val in x:
