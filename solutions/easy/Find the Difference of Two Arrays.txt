@@ -1,0 +1,23 @@
+// Title: Find the Difference of Two Arrays
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/find-the-difference-of-two-arrays/
+
+class Solution:
+    def findDifference(self, nums1: list[int], nums2: list[int]) -> list[list[int]]:
+        x = {}
+        y = {}
+        for num in nums1:
+            if num not in x:
+                x[num] = 1
+        for num in nums2:
+            if num not in y:
+                y[num] = 1
+        for val in x:
+        output = [[],[]]
+            if val not in y:
+                output[0].append(val)
+        for val in y:
+            if val not in x:
+                output[1].append(val)
+        return output
