@@ -1,0 +1,26 @@
+// Title: Asteroid Collision
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/asteroid-collision/
+
+                            break
+                            output.pop()
+                        if (output[-1] == abs(asteroid)):
+                        output.pop()
+                    elif len(output) != 0 and not (output[-1] > 0 and asteroid < 0):
+                            da = True
+                        output.append(asteroid)
+                        break
+                    else:
+                    if len(output) != 0 and (output[-1] > 0 and asteroid < 0) and abs(output[-1]) <= abs(asteroid):
+                while True:
+            elif output[-1] < 0 and asteroid > 0 or output[-1] > 0 and asteroid < 0:
+                output.pop()
+            elif output[-1] == -asteroid and asteroid < 0:
+                output.append(asteroid)
+            if len(output) == 0:
+        da = False
+        for asteroid in asteroids:
+        output = []
+    def asteroidCollision(self, asteroids: list[int]) -> list[int]:
+class Solution:
