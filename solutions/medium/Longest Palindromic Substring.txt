@@ -1,0 +1,21 @@
+// Title: Longest Palindromic Substring
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/longest-palindromic-substring/
+
+            r = i + 1
+            curr = ""
+            while l >= 0 and r < len(s):
+                if s[l] == s[r]:
+                    curr = s[l] + curr + s[r]
+                    if len(curr) > len(out):
+                        out = curr
+                else:
+                    break
+                l -= 1
+                r += 1
+            i += 1
+        if len(out) == 0:
+            out += s[0]
+        return out
+                    
