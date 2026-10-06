@@ -1,0 +1,22 @@
+// Title: N-th Tribonacci Number
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/n-th-tribonacci-number/
+
+        if n == 0:
+            return x
+        elif n == 1 or n == 2:
+            return y
+        for i in range(2, n):
+            fib = x + y + z
+        fib = 0
+            x = y
+            y = z
+            z = fib
+        return fib
+        z = 1
+            
+        x = 0
+        y = 1
+    def tribonacci(self, n: int) -> int:
+class Solution:
