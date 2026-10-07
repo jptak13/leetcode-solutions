@@ -1,0 +1,21 @@
+// Title: Minimum Size Subarray Sum
+            // Difficulty: Unknown
+            // Language: Python3
+            // Link: https://leetcode.com/problems/minimum-size-subarray-sum/
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
+        out = len(nums) + 1
+        l = r = total = 0
+        while l < len(nums) and r < len(nums):
+            total += nums[r]
+            print(total, l, r)
+            if total >= target:
+                out = min(out, r - l + 1)
+                total -= nums[l] + nums[r]
+                l += 1
+            else:
+                r += 1
+        if out == len(nums) + 1:
+            return 0
+        return out
