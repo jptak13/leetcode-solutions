@@ -1,0 +1,16 @@
+// Title: Product of Array Except Self
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/product-of-array-except-self/
+
+class Solution:
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
+        out = [1] * len(nums)
+        prev =  post = 1
+        for i in range(len(nums)):
+            out[i] *= prev
+            prev *= nums[i]
+        for i in range(len(nums) - 1, -1, -1):
+            out[i] *= post
+            post *= nums[i]
+        return out
