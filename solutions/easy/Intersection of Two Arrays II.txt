@@ -1,0 +1,21 @@
+// Title: Intersection of Two Arrays II
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/intersection-of-two-arrays-ii/
+
+class Solution:
+    def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]:
+        x = {}
+        out = []
+        for char in nums1:
+            if char not in x:
+                x[char] = 1
+        for char in nums2:
+            if char in x and x[char] > 0:
+                out.append(char)
+        return out
+        
+            else:
+                x[char] += 1
+                x[char] -= 1
+
