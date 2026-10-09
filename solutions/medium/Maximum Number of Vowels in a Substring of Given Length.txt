@@ -1,0 +1,20 @@
+// Title: Maximum Number of Vowels in a Substring of Given Length
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/
+
+            return s == "a" or s == "e" or s == "i" or s == "o" or s == "u"
+        most = 0
+        total = 0
+        for i in range(len(s)):
+            if isVowel(s[i]):
+                total += 1
+            if i >= k:
+                if isVowel(s[i - k]):
+                    total -= 1
+            if i >= k - 1:
+                most = max(most, total)
+    def maxVowels(self, s: str, k: int) -> int:
+        def isVowel(s: str) -> bool:
+class Solution:
+        return most
