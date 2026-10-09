@@ -1,0 +1,35 @@
+// Title: Fruit Into Baskets
+            // Difficulty: Unknown
+            // Language: Python3
+            // Link: https://leetcode.com/problems/fruit-into-baskets/
+
+class Solution:
+    def totalFruit(self, fruits: list[int]) -> int:
+        out = l = 0
+        r = 1
+        if len(fruits) < 3:
+            return len(fruits)
+        t1 = fruits[0]
+        t2 = fruits[1]
+        while r < len(fruits):
+            if fruits[r] == t1 or fruits[r] == t2:
+                out = max(out, r - l + 1)
+            elif t1 == t2:
+                t2 = fruits[r]
+                out = max(out, r - l + 1)
+            else:
+                if fruits[r - 1] == t2:
+                    l = r - 1
+                    while fruits[l] != t1:
+                        l -= 1
+                    l += 1
+                    t1 = t2
+                    t2 = fruits[r]
+                else:
+                    l = r - 1
+                    while fruits[l] != t2:
+                        l -= 1
+                    l += 1
+                    t2 = fruits[r]
+            r += 1
+        return out
