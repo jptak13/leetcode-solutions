@@ -1,0 +1,21 @@
+// Title: Longest Palindrome
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/longest-palindrome/
+
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        x = {}
+        for i in range(len(s)):
+            if s[i] not in x:
+                x[s[i]] = 1
+            else:
+                x[s[i]] += 1
+        for key in x:
+        odd = 0
+        out = 0
+            if x[key] % 2 == 1:
+                odd = 1
+            out += x[key] // 2
+        return 2 * out + odd
+
