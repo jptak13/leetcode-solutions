@@ -1,0 +1,25 @@
+// Title: Minimum Absolute Difference in BST
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/minimum-absolute-difference-in-bst/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        def inOrder(root):
+        nums = []
+        least = float('inf')
+            if root is None: return
+            inOrder(root.right)
+            nums.append(root.val)
+            inOrder(root.left)
+        inOrder(root)
+        for i in range(len(nums) - 1):
+            least = min(least, abs(nums[i + 1] - nums[i]))
+        return least
+
