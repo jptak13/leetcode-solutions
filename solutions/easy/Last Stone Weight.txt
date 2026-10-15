@@ -1,0 +1,22 @@
+// Title: Last Stone Weight
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/last-stone-weight/
+
+import heapq
+class Solution:
+    def lastStoneWeight(self, stones: list[int]) -> int:
+        x = []
+        for stone in stones:
+            heapq.heappush(x, -stone)
+        while len(x) > 1:
+            first = -heapq.heappop(x)
+
+            second = -heapq.heappop(x)
+            if first == second:
+                continue
+            heapq.heappush(x, -(first - second))
+        return -heapq.heappop(x)
+        if len(x) == 0:
+            return 0
+
