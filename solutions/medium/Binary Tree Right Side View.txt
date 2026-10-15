@@ -1,0 +1,28 @@
+// Title: Binary Tree Right Side View
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/binary-tree-right-side-view/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rightSideView(self, root: TreeNode | None) -> list[int]:
+        queue = []
+        l = 0
+        queue.append(root)
+        out = []
+        if root is None:
+            return out
+        out.append(root.val)
+        while l != len(queue):
+            end = len(queue)
+            while l != end:
+                curr = queue[l]
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
