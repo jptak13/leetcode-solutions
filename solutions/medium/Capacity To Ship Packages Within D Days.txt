@@ -1,0 +1,24 @@
+// Title: Capacity To Ship Packages Within D Days
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+
+class Solution:
+    def shipWithinDays(self, weights: list[int], days: int) -> int:
+        l = max(weights)
+        r = sum(weights)
+        while l < r:
+            mid = (l + r) // 2
+            count = 0
+            i = 0
+            while i < len(weights):
+                curr = 0
+                while i < len(weights) and curr + weights[i] <= mid:
+                    curr += weights[i]
+                    i += 1
+                count += 1
+            if count > days:
+                l = mid + 1
+            else:
+                r = mid
+        return l
