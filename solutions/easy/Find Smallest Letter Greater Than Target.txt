@@ -1,0 +1,23 @@
+// Title: Find Smallest Letter Greater Than Target
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/find-smallest-letter-greater-than-target/
+
+class Solution:
+    def nextGreatestLetter(self, letters: list[str], target: str) -> str:
+        l = 0
+        r = len(letters) - 1
+        last = -1
+        while l <= r:
+            mid = (l + r) // 2
+            if letters[mid] == target:
+                l = mid + 1
+            elif letters[mid] < target:
+                l = mid + 1
+            else:
+                last = mid
+                r = mid - 1
+        print(last, l, r)
+        if (l == 0 or r == len(letters) - 1) and last == -1:
+            return letters[0]
+        return letters[last]
