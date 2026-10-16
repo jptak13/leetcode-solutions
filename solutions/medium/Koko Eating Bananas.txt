@@ -1,0 +1,24 @@
+// Title: Koko Eating Bananas
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/koko-eating-bananas/
+
+        r = max(piles)
+        while l < r:
+            i = 0
+            mid = (l + r) // 2
+            curr = 0
+            while i < len(piles):
+                y = piles[i]
+                if y <= mid:
+                    curr += 1
+                else:
+                    curr += (y + mid - 1) // mid
+                i += 1
+            if curr <= h:
+                r = mid
+            else:
+                l = mid + 1
+        l = 1
+    def minEatingSpeed(self, piles: list[int], h: int) -> int:
+class Solution:
