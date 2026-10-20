@@ -1,0 +1,26 @@
+// Title: Binary Tree Tilt
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/binary-tree-tilt/
+
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+
+            nonlocal out
+
+
+
+        out = 0
+                return 0
+            if root is None:
+            right = search(root.right)
+            left = search(root.left)
+
+            out += abs(left - right)
+            return root.val + left + right
+
+        def search(root):
+        search(root)
+        return out
