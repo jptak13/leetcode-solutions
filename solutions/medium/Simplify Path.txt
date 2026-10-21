@@ -1,0 +1,26 @@
+// Title: Simplify Path
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/simplify-path/
+
+        stack = []
+        for i, part in enumerate(parts):
+            stack.append("/")
+            if stack and part == "..":
+                stack.pop()
+        x = "".join(stack)
+            else:
+                stack.append(part)
+                if part == ".":
+                    stack.pop()
+                    stack.pop()
+        print(parts)
+            if part == "":
+                continue
+                if stack:
+                    stack.pop()
+                    if stack:
+                        stack.pop()
+        if len(x) == 0:
+            x = "/"
+        return x
