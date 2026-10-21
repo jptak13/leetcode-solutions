@@ -1,0 +1,15 @@
+// Title: Daily Temperatures
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/daily-temperatures/
+
+class Solution:
+    def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
+        stack = [] 
+        out = [0] * len(temperatures)
+        for i, temp in enumerate(temperatures):
+            while stack and stack[-1][0] < temp:
+                x = stack.pop()[1]
+                out[x] = i - x
+            stack.append([temp, i])
+        return out
