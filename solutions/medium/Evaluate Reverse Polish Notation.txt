@@ -1,0 +1,23 @@
+// Title: Evaluate Reverse Polish Notation
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/evaluate-reverse-polish-notation/
+
+                stack.append(x + y)
+            elif token == "-":
+                x = stack.pop()
+                y = stack.pop()
+                stack.append(y - x)
+            elif token == "/":
+                x = stack.pop()
+                y = stack.pop()
+                stack.append(int(y / x))
+            elif token == "*":
+                x = stack.pop()
+                y = stack.pop()
+                stack.append(x * y)
+            else:
+                stack.append(int(token))
+        return stack[-1]
+            
+                y = stack.pop()
