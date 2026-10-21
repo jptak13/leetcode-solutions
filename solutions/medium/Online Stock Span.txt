@@ -1,0 +1,25 @@
+// Title: Online Stock Span
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/online-stock-span/
+
+class StockSpanner:
+
+    def __init__(self):
+        self.stack = []
+
+    def next(self, price: int) -> int:
+        if self.stack and self.stack[-1][0] <= price:
+            toReturn = 1
+            while self.stack and self.stack[-1][0] <= price:
+                toReturn += self.stack.pop()[1]
+            self.stack.append([price, toReturn])
+        else:
+            toReturn = 1
+            self.stack.append([price, 1])
+        return toReturn
+
+
+# Your StockSpanner object will be instantiated and called as such:
+# obj = StockSpanner()
+# param_1 = obj.next(price)
