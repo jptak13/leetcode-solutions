@@ -1,0 +1,23 @@
+// Title: Validate Stack Sequences
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/validate-stack-sequences/
+
+class Solution:
+    def validateStackSequences(self, pushed: list[int], popped: list[int]) -> bool:
+        first = 0
+        second = 0
+        stack = []
+        while True:
+            if first == len(pushed) and second == len(popped):
+                return True
+            if stack and popped[second] == stack[-1]:
+                stack.pop()
+                second += 1
+            elif first < len(pushed):
+                stack.append(pushed[first])
+                first += 1
+            else:
+                return False
+
+
