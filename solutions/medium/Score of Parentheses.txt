@@ -1,0 +1,17 @@
+// Title: Score of Parentheses
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/score-of-parentheses/
+
+class Solution:
+    def scoreOfParentheses(self, s: str) -> int:
+        stack = []
+        score = 0
+        for i, char in enumerate(s):
+            if stack and char == ")" and stack[-1] == "(":
+                stack.pop()
+                if s[i - 1] == "(":
+                    score += 2**len(stack)
+            else:
+                stack.append(char)
+        return score
