@@ -1,0 +1,16 @@
+// Title: Next Greater Element II
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/next-greater-element-ii/
+
+class Solution:
+    def nextGreaterElements(self, nums: list[int]) -> list[int]:
+        out = [-1] * len(nums)
+        stack = []
+        for i in range(len(nums) * 2):
+            while stack and stack[-1][0] < nums[i % len(nums)]:
+                x = stack.pop()
+                out[x[1]] = nums[i % len(nums)]
+            stack.append([nums[i % len(nums)], i % len(nums)])
+        return out
+
