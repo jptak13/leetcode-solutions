@@ -1,0 +1,17 @@
+// Title: Find Center of Star Graph
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/find-center-of-star-graph/
+
+class Solution:
+    def findCenter(self, edges: list[list[int]]) -> int:
+        counts = {}
+        for edge in edges:
+            if edge[0] not in counts:
+                counts[edge[0]] = 1
+            else:
+                return edge[0]
+            if edge[1] not in counts:
+                counts[edge[1]] = 1
+            else:
+                return edge[1]
